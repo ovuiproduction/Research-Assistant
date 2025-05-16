@@ -1,0 +1,491 @@
+    /* :root {
+            --bg-color: #343541;
+            --chat-bg: #444654;
+            --user-bg: #343541;
+            --text-color: #ececf1;
+            --accent-color: #10a37f;
+            --input-bg: #40414f;
+            --border-color: #555766;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        #chat-container {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message {
+            padding: 15px 20px;
+            border-radius: 8px;
+            line-height: 1.5;
+        }
+
+        .user-message {
+            background-color: var(--user-bg);
+        }
+
+        .bot-message {
+            background-color: var(--chat-bg);
+        }
+
+        .message-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        #uploadForm {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px;
+            background-color: var(--chat-bg);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        label {
+            font-weight: 500;
+        }
+
+        #pdfFile {
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        button:hover {
+            background-color: #0d8c6d;
+        }
+
+        button:disabled {
+            background-color: #5d6d6a;
+            cursor: not-allowed;
+        }
+
+        #input-area {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            background-color: var(--input-bg);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        #queryInput {
+            flex: 1;
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            border: none;
+            padding: 12px 15px;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        #queryInput:focus {
+            outline: none;
+        }
+
+        #uploadStatus {
+            color: #a0a0a0;
+            font-style: italic;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 5px;
+            padding: 5px;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--text-color);
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: typingAnimation 1.4s infinite ease-in-out;
+        }
+
+        .typing-dot:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typingAnimation {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.4;
+            }
+            30% {
+                transform: translateY(-5px);
+                opacity: 1;
+            }
+        }
+
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--chat-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .file-info i {
+            color: var(--accent-color);
+        } */
+
+        :root {
+    --bg-color: #343541;
+    --chat-bg: #444654;
+    --user-bg: #343541;
+    --text-color: #ececf1;
+    --accent-color: #10a37f;
+    --input-bg: #40414f;
+    --border-color: #555766;
+    --sidebar-bg: #202123;
+    --sidebar-width: 280px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--sidebar-bg);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-color);
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    padding: 15px 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-header h2 {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 0.9rem;
+    color: #d1d1d1;
+}
+
+#chat-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    padding: 15px 20px;
+    border-radius: 8px;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.user-message {
+    background-color: var(--user-bg);
+}
+
+.bot-message {
+    background-color: var(--chat-bg);
+}
+
+.message-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+#input-area {
+    padding: 15px 20px;
+    background-color: var(--input-bg);
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid var(--border-color);
+}
+
+#queryInput {
+    flex: 1;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 12px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#queryInput:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+button:hover {
+    background-color: #0d8c6d;
+}
+
+button:disabled {
+    background-color: #5d6d6a;
+    cursor: not-allowed;
+}
+
+.upload-section {
+    margin-bottom: 20px;
+}
+
+#uploadForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#pdfFile {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+#uploadStatus {
+    font-size: 0.85rem;
+    color: #a0a0a0;
+    margin-top: 5px;
+}
+
+.file-info {
+    background-color: rgba(16, 163, 127, 0.1);
+    border: 1px solid rgba(16, 163, 127, 0.3);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.file-info-text {
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.file-info-text strong {
+    font-weight: 600;
+}
+
+.new-chat-btn {
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    background-color: transparent;
+}
+
+.new-chat-btn:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.typing-indicator {
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+}
+
+.typing-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: typingAnimation 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typingAnimation {
+    0%, 60%, 100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+    30% {
+        transform: translateY(-5px);
+        opacity: 1;
+    }
+}

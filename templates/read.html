@@ -1,0 +1,129 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Q&A System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/read.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-file-pdf"></i> PDF Research Assistant</h1>
+            <p>Upload a research paper and ask questions about its content</p>
+        </header>
+
+        <div id="chat-container">
+            <div class="message bot-message">
+                <div class="message-header">
+                    <i class="fas fa-robot"></i>
+                    <span>PDF Assistant</span>
+                </div>
+                <p>Hello! Please upload a PDF research paper to get started. Once uploaded, you can ask questions about its content.</p>
+            </div>
+        </div>
+
+        <form id="uploadForm">
+            <div class="form-group">
+                <label for="pdfFile">Upload Research Paper (PDF)</label>
+                <input type="file" id="pdfFile" name="pdf" accept=".pdf" required>
+            </div>
+            <button type="submit" id="uploadBtn">
+                <i class="fas fa-upload"></i>
+                <span>Upload PDF</span>
+            </button>
+        </form>
+        <p id="uploadStatus"></p>
+
+        <div id="input-area" class="hidden">
+            <input type="text" id="queryInput" placeholder="Ask a question about the research paper..." required>
+            <button id="askBtn" onclick="askQuestion()">
+                <i class="fas fa-paper-plane"></i>
+                <span class="btn-text">Ask</span>
+            </button>
+        </div>
+    </div>
+    <script src="/static/js/read.js"></script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Q&A System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/read.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-file-pdf"></i> PDF Tools</h2>
+        </div>
+        
+        <div class="upload-section">
+            <form id="uploadForm">
+                <div class="form-group">
+                    <label for="pdfFile"><i class="fas fa-file-upload"></i> Upload Research Paper</label>
+                    <input type="file" id="pdfFile" name="pdf" accept=".pdf" required>
+                </div>
+                <button type="submit" id="uploadBtn">
+                    <i class="fas fa-upload"></i>
+                    <span>Upload PDF</span>
+                </button>
+            </form>
+            <p id="uploadStatus"></p>
+            
+            <div id="fileInfoContainer" class="hidden">
+                <div class="file-info">
+                    <i class="fas fa-file-pdf"></i>
+                    <div class="file-info-text">
+                        <strong>Current PDF:</strong>
+                        <span id="fileName"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="new-chat-btn" onclick="newChat()">
+            <i class="fas fa-plus"></i>
+            <span>New Chat</span>
+        </button>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1><i class="fas fa-file-pdf"></i> PDF Research Assistant</h1>
+            <p>Ask questions about your uploaded research paper</p>
+        </header>
+
+        <div id="chat-container">
+            <div class="message bot-message">
+                <div class="message-header">
+                    <i class="fas fa-robot"></i>
+                    <span>PDF Assistant</span>
+                </div>
+                <p>Hello! Please upload a PDF research paper to get started. Once uploaded, you can ask questions about its content.</p>
+            </div>
+        </div>
+
+        <div id="input-area" class="hidden">
+            <input type="text" id="queryInput" placeholder="Ask a question about the research paper..." required>
+            <button id="askBtn" onclick="askQuestion()">
+                <i class="fas fa-paper-plane"></i>
+                <span class="btn-text">Ask</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="/static/js/read.js"></script>
+</body>
+
+</html>

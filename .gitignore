@@ -1,0 +1,5 @@
+Models/
+*.csv
+*.faiss
+*.env
+__pycache__/

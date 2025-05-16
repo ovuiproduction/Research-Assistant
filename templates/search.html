@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Paper Search</title>
+    <link rel="stylesheet" href="/static/css/paper_search.css">
+</head>
+<body>
+    <header>
+        <h1>Research Paper Search</h1>
+        <p>Find relevant papers for your literature review</p>
+    </header>
+    <main>
+        <div id="search-container">
+            <div>
+                <label for="searchType">Search by:</label>
+                <select id="searchType">
+                    <option value="title">Title</option>
+                    <option value="abstract">Abstract</option>
+                    <option value="author">Author</option>
+                </select>
+            </div>
+            <div>
+                <label for="search_limit">No. of Research Papers:</label>
+                <input id="search_limit" type="number" min="1">
+            </div>
+            <div>
+                <label for="searchQuery">Enter your query:</label>
+                <textarea id="searchQuery" rows="4" placeholder="Type your search here (e.g., Machine Learning in Healthcare)..."></textarea>
+            </div>
+            <button id="search_btn">Search</button>
+            <button id="reset_btn">Reset</button>
+        </div>
+        <h3>Results:</h3>
+        <table id="resultsTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Abstract</th>
+                    <th>Authors</th>
+                    <th>DOI</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div id="loading-spinner" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading papers...</p>
+        </div>
+    </main>
+    <footer>
+        <p>© 2025 Academic Research Portal. All rights reserved.</p>
+    </footer>
+    <script src="/static/js/paper_search.js"></script>
+</body>
+</html>
