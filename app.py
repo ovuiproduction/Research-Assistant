@@ -12,7 +12,7 @@ import google.generativeai as genai
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import pandas as pd
 
-from textsimilarity import getScore
+from codebase.textsimilarity import getScore
 from codebase.humanize import humanize_text
 
 app = Flask(__name__, template_folder='templates', static_folder='static')

@@ -1,4 +1,4 @@
-document.getElementById('download_pdf').addEventListener('click', function() {
+document.getElementById('download_pdf').addEventListener('click', function () {
     // Get content for the PDF
     const author = document.getElementById('authorName').textContent;
     const title = document.getElementById('paperTitle').textContent;
@@ -39,16 +39,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (summaryTextElement) {
         const summary = summaryTextElement.innerText;
-        updateWordCount(summary,'wordCount');
-        updateWordCount(summary,'wordCountSummary');
+        updateWordCount(summary, 'wordCount');
+        updateWordCount(summary, 'wordCountSummary');
     }
     if (summaryTextElement) {
         const originalText = originalTextElement.innerText;
-        updateWordCount(originalText,'wordCountOriginal');
+        updateWordCount(originalText, 'wordCountOriginal');
     }
 });
 
-function updateWordCount(summary,id) {
+function updateWordCount(summary, id) {
     console.log("Update word count");
     const wordCountDisplay = document.getElementById(id);
     const words = summary.trim().split(/\s+/).filter(word => word.length > 0);
@@ -60,10 +60,52 @@ function updateWordCount(summary,id) {
 document.getElementById("copy_btn").addEventListener("click", function () {
     const summaryText = document.getElementById("summaryText").textContent;
     navigator.clipboard.writeText(summaryText).then(() => {
-      const copyBtn = document.getElementById("copy_btn");
-      copyBtn.textContent = "✔ Copied!";
-      setTimeout(() => {
-        copyBtn.textContent = "📋";
-      }, 2000);
+        const copyBtn = document.getElementById("copy_btn");
+        copyBtn.textContent = "✔ Copied!";
+        setTimeout(() => {
+            copyBtn.textContent = "📋";
+        }, 2000);
     });
-  });
+});
+
+
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     const summaryTextElement = document.getElementById("summaryText");
+//     if (summaryTextElement) {
+//         const summary = summaryTextElement.innerText;
+//         updateWordCount(summary);
+//     }
+// });
+
+// function updateWordCount(text) {
+//     const wordCount = text.split(/\s+/).filter((word) => word).length;
+//     document.getElementById("wordCount").innerText = `${wordCount} words`;
+// }
+
+document
+    .getElementById("checkSimilarity")
+    .addEventListener("click", function () {
+        const originalText = document.getElementById("originalText").innerText;
+        const summaryText = document.getElementById("summaryCompareText")
+            .innerText;
+
+        fetch("/check_similarity", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                original_text: originalText,
+                summary_text: summaryText,
+            }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                document.getElementById("similarityScore").innerText = data.score;
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                alert("Error calculating similarity score.");
+            });
+    });
