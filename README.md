@@ -1,4 +1,4 @@
-# 🤖 AI-ResearchMate: Humanizing and Assisting Research with LLMs ®
+# 🤖 AI-ResearchMate: Humanizing and Assisting Research with LLMs
 
 An AI-powered co-research assistant that simplifies academic research using intelligent search, interactive Q&A, and humanized text transformation to help bypass AI content detection mechanisms.
 
@@ -16,7 +16,8 @@ An AI-powered co-research assistant that simplifies academic research using inte
 
 ## 🧠 Features
 
-- 🔍 **Smart Semantic Search**: Retrieve top relevant papers using embeddings from ArXiv and Journal Ranking datasets.
+- 🔍 **Smart Paper Search**: Retrieve top relevant research papers to basis of abstract , title or .author names.
+- 🔍 **Smart Journal Search**: Suggesting Journals based on domain and keywords also filterring Qurtile based.
 - 💬 **Interactive Q&A**: Ask questions about research content and get answers powered by Large Language Models.
 - 📝 **AI Content Humanization**: Use BART-based pipeline to rewrite AI-generated text into human-like writing.
 - 🚨 **AI Content Detection**: Detect and highlight AI-written content to improve authenticity and originality.
@@ -26,13 +27,13 @@ An AI-powered co-research assistant that simplifies academic research using inte
 ## 🧰 Tech Stack
 
 - **Language**: Python
-- **LLM Models**: BART (`facebook/bart-large` via HuggingFace)
+- **LLM Models**: BART (`facebook/bart-large` via HuggingFace) , all-MiniLM-L6-v2
 - **Vector Search**: FAISS
 - **Database**: MongoDB
 - **Datasets**: 
   - ArXiv Paper Dataset
   - Journal Ranking Dataset
-
+  - Self-Curated AI-Human Text Pair Dataset:
 ---
 
 ## 🛠️ Key Contributions
