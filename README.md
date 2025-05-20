@@ -1,4 +1,4 @@
-# 🤖 AI-ResearchMate: Humanizing and Assisting Research with LLMs
+# 🎓 AI-ResearchMate: Humanizing and Assisting Research with LLMs
 
 An AI-powered co-research assistant that simplifies academic research using intelligent search, interactive Q&A, and humanized text transformation to help bypass AI content detection mechanisms.
 
@@ -50,4 +50,4 @@ An AI-powered co-research assistant that simplifies academic research using inte
    ```bash
    git clone https://github.com/yourusername/AI-ResearchMate.git
    cd AI-ResearchMate
-```
+  ```
