@@ -1,5 +1,7 @@
 # 🎓 AI-ResearchMate: Humanizing and Assisting Research with LLMs
 
+### [Demo](https://www.youtube.com/watch?v=zVt5Ib4r5Y0)
+
 An AI-powered co-research assistant that simplifies academic research using intelligent search, interactive Q&A, and humanized text transformation to help bypass AI content detection mechanisms.
 
 ---
